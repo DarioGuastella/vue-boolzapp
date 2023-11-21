@@ -32,8 +32,42 @@ img {
     align-self: center;
     text-align: center;
     font-size: 1.4rem;
-    color: lightblue;
+    color: #8edafc;
     background-color: white;
     padding: 0.9rem 0 0 0;
 
+}
+
+.notificationBox {
+    background-color: #8edafc;
+}
+
+.sentMsg{
+    background-color: #d5f9ba;
+    left: 480px;
+}
+
+.msg{
+    width: 20rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    justify-content: space-between;
+}
+
+.receivedMsg{
+    background-color: white;
+    margin-left: 4rem;
+}
+
+.msgTime{
+    font-size: 0.7rem;
+    color: grey;
+    align-self: end;
+    padding-right: 0.2rem;
+}
+
+p {
+    padding: 1rem;
+    margin-bottom: 0;
 }
