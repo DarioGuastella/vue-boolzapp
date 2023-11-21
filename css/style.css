@@ -71,3 +71,18 @@ p {
     padding: 1rem;
     margin-bottom: 0;
 }
+
+.actived {
+    background-color: #e9ebeb;
+}
+
+.infoText{
+    color: #aaadad;
+    font-size: 0.8rem;
+}
+
+.greyLink{
+    text-decoration: underline;
+    color: grey;
+    cursor: pointer;
+}
