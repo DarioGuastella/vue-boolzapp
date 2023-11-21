@@ -173,7 +173,7 @@ createApp({
         
     },
     mounted() {
-        
+        console.log(this.contacts[0].messages[0].message)
 
     }
 }).mount('#app')
