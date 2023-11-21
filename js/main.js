@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            newMsg: "",
             counter: 0, 
             contacts: [
                 {
@@ -174,6 +175,15 @@ createApp({
         prova(i){
             this.counter=i;
             console.log(this.counter)
+        },
+        addMsg() {
+            let newTxt = {
+                date: '10/01/2020 15:51:00',
+                message: this.newMsg,
+                status: 'sent'
+            };
+            this.contacts[this.counter].messages.push(newTxt);
+            this.newMsg = ""
         }
     },
     mounted() {

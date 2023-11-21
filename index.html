@@ -200,10 +200,10 @@
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <div class="col">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Scrivi un messaggio"
+                        
+                            <input v-model="newMsg" @keyup.enter="addMsg" class="form-control me-2" type="text" placeholder="Scrivi un messaggio"
                                 aria-label="Search">
-                        </form>
+                        
                     </div>
                     <div class="col-auto mx-4">
                         <i class="fa-solid fa-microphone"></i>
