@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            counter: 0, 
             contacts: [
                 {
                     name: 'Michele',
@@ -170,10 +171,13 @@ createApp({
         }
     },
     methods: {
-        
+        prova(i){
+            this.counter=i;
+            console.log(this.counter)
+        }
     },
     mounted() {
-        console.log(this.contacts[0].messages[0].message)
+        //console.log(this.contacts[0].messages[0].message)
 
     }
 }).mount('#app')

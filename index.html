@@ -63,7 +63,7 @@
                     </nav>
                 </div>
                 <div class="container  overflow-y-scroll">
-                    <div v-for="contact in contacts" :class="contact[0] ? 'row p-2 actived' : 'row p-2'">
+                    <div v-for="(contact, i) in contacts" @click="prova(i)" :class="counter==i ? 'row p-2 actived' : 'row p-2'">
                         <div class="col-auto">
                             <img :src="contact.avatar" alt="">
                         </div>
@@ -177,7 +177,7 @@
             <div class="col-8 p-0">
                 <div class="backgroundBox overflow-y-scroll">
                     <div class="mt-5">
-                        <div v-for="(value, i) in contacts[0].messages" :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'">
+                        <div v-for="(value, i) in contacts[counter].messages" :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'">
                             <p>{{ value.message }}</p>
                             <span class="msgTime">15:50</span>
                         </div>
