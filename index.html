@@ -28,9 +28,9 @@
             </div>
             <div class="col-8 d-flex justify-content-between">
                 <div class="d-flex">
-                    <img src="img/avatar_1.jpg" alt="">
+                    <img :src="contacts[counter].avatar" alt="">
                     <div class="d-flex flex-column">
-                        <span class="">Michele</span>
+                        <span class="">{{contacts[counter].name}}</span>
                         <span class="infoText">Ultimo accesso oggi alle 12:00</span>
                     </div>
                 </div>
