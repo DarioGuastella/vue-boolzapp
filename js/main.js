@@ -176,6 +176,15 @@ createApp({
             this.counter=i;
             console.log(this.counter)
         },
+        answerMsg(){
+            let newCpuText = {
+                date: '10/01/2020 15:51:00',
+                message: 'Ok',
+                status: 'received'
+            };
+            this.contacts[this.counter].messages.push(newCpuText);
+            this.newAnswer = ""
+        },
         addMsg() {
             let newTxt = {
                 date: '10/01/2020 15:51:00',
@@ -184,7 +193,9 @@ createApp({
             };
             this.contacts[this.counter].messages.push(newTxt);
             this.newMsg = ""
-        }
+            setTimeout(this.answerMsg, 1000);
+        },
+        
     },
     mounted() {
         //console.log(this.contacts[0].messages[0].message)
