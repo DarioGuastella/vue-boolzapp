@@ -176,7 +176,8 @@ createApp({
     methods: {
         myCounter(i) {
             this.counter = i;
-            console.log(this.contacts[this.counter].messages[1].message)
+            const length = this.contacts[this.counter].messages.length-1
+            console.log(this.contacts[this.counter].messages[length].message)
         },
         answerMsg() {
             let newCpuText = {
@@ -211,12 +212,6 @@ createApp({
 
     },
     mounted() {
-        
-       
-        
-
-        
-
 
     }
 }).mount('#app')
