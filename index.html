@@ -71,10 +71,10 @@
                             </div>
                             <div class="col">
                                 <h5>{{value.name}}</h5>
-                                <span class="infoText">{{contacts[i].messages[1].message}}</span>
+                                <span class="infoText">{{contacts[i].messages[value.messages.length-1].message}}</span>
                             </div>
                             <div class="col-auto">
-                                <span class="infoText">{{value.messages.date}}</span>
+                                <span class="infoText">{{value.messages[value.messages.length-1].date}}</span>
                             </div>
                         </div>
                     </template>

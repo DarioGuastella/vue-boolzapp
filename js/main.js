@@ -7,6 +7,7 @@ createApp({
             notifications: false, 
             newMsg: "",
             counter: 0,
+            lastMsg: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -175,11 +176,10 @@ createApp({
         }
     },
     methods: {
+        
         myCounter(i) {
             this.counter = i;
-            const length = this.contacts[this.counter].messages.length-1
-            console.log(this.contacts[this.counter].messages[length].message)
-            console.log()
+            this.lengthCheck()
         },
         answerMsg() {
             let newCpuText = {
@@ -205,18 +205,12 @@ createApp({
             console.log(this.notifications)
         },
         userSearch(){
-            // if (/*se il testo della ricerca NON è incluso tra i nomi nell'array*/) {
-            //     //visible diventa false
-            // }
-            
-            
             for (let i = 0; i < this.contacts.length; i++) {
                 if (!this.contacts[i].name.toLowerCase().includes(this.searchInput)) {
                     this.contacts[i].visible=false
                     
                 }               
                 console.log(this.contacts[i].visible);
-                    //!this.contacts[this.counter].name.includes(this.searchInput)
             }
             
         },
@@ -228,12 +222,17 @@ createApp({
                 }
             }
             
+        },
+        lengthCheck(){
+            this.lastMsg = this.contacts[this.counter].messages.length-1;
+            console.log(this.lastMsg)
         }
+
+        
 
 
 
     },
     mounted() {
-
     }
 }).mount('#app')
