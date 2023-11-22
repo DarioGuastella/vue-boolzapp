@@ -86,15 +86,18 @@
             <div class="col-8 p-0">
                 <div class="backgroundBox overflow-y-scroll">
                     <div class="mt-5">
-                        <div v-for="value in contacts[counter].messages"
+                        <div v-for="(value, i) in contacts[counter].messages"
                             :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'"
-                            class="dropdown">
-                            <p class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ value.message}}</p>
-                            <span class="msgTime">{{value.date}}</span>
+                            class="pointer">
+                            <div data-bs-toggle="dropdown" class="d-flex w-100 justify-content-between">
+                            <p class="" type="button"aria-expanded="false">{{ value.message}}</p>
+                            <span class="msgTime text-end">{{value.date}}</span>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Message info</a></li>
-                                <li><a class="dropdown-item" href="#">Delete message</a></li>
+                                <li><a class="dropdown-item">Message info</a></li>
+                                <li @click="deleteMessage(i)"><a class="dropdown-item">Delete message</a></li>
                             </ul>
+                        </div>
+                            
                         </div>
                     </div>
                 </div>

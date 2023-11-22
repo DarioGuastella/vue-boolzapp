@@ -225,7 +225,9 @@ createApp({
         },
         lengthCheck(){
             this.lastMsg = this.contacts[this.counter].messages.length-1;
-            console.log(this.lastMsg)
+        },
+        deleteMessage(index) {
+            this.contacts[this.counter].messages.splice(index, 1);
         }
 
         

@@ -86,3 +86,7 @@ p {
     color: grey;
     cursor: pointer;
 }
+
+.pointer{
+    cursor: pointer;
+}
