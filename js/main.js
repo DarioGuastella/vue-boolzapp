@@ -211,7 +211,7 @@ createApp({
             
             
             for (let i = 0; i < this.contacts.length; i++) {
-                if (!this.contacts[i].name.includes(this.searchInput)) {
+                if (!this.contacts[i].name.toLowerCase().includes(this.searchInput)) {
                     this.contacts[i].visible=false
                     
                 }               
