@@ -31,7 +31,7 @@
                     <img :src="contacts[counter].avatar" alt="">
                     <div class="d-flex flex-column">
                         <span class="">{{contacts[counter].name}}</span>
-                        <span class="infoText">Ultimo accesso oggi alle {{contacts[counter].messages[1].date}}</span>
+                        <span class="infoText">Ultimo accesso oggi alle {{contacts[counter].messages[contacts[counter].messages.length-1].date}}</span>
                     </div>
                 </div>
                 <div class="align-self-center me-2 text-secondary">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="col">
                                 <h5>{{value.name}}</h5>
-                                <span class="infoText">{{contacts[i].messages[value.messages.length-1].message}}</span>
+                                <span class="infoText">{{value.messages[value.messages.length-1].message}}</span>
                             </div>
                             <div class="col-auto">
                                 <span class="infoText">{{value.messages[value.messages.length-1].date}}</span>
