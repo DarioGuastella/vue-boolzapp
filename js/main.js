@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             newMsg: "",
-            counter: 0, 
+            counter: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -166,17 +166,18 @@ createApp({
                             status: 'received'
                         }
                     ],
+                    
                 }
             ]
-            
+
         }
     },
     methods: {
-        prova(i){
-            this.counter=i;
-            console.log(this.counter)
+        myCounter(i) {
+            this.counter = i;
+            console.log(this.contacts[this.counter].messages[1].message)
         },
-        answerMsg(){
+        answerMsg() {
             let newCpuText = {
                 date: '10/01/2020 15:51:00',
                 message: 'Ok',
@@ -194,11 +195,18 @@ createApp({
             this.contacts[this.counter].messages.push(newTxt);
             this.newMsg = ""
             setTimeout(this.answerMsg, 1000);
-        },
-        
+        }
+
+
+
     },
     mounted() {
-        //console.log(this.contacts[0].messages[0].message)
+        
+       
+        
+
+        
+
 
     }
 }).mount('#app')
