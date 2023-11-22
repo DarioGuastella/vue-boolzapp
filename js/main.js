@@ -200,6 +200,11 @@ createApp({
         notificationOff(){
             this.notifications = !this.notifications
             console.log(this.notifications)
+        },
+        userSearch(){
+            // if (/*se il testo della ricerca NON è incluso tra i nomi nell'array*/) {
+            //     //visible diventa false
+            // }
         }
 
 

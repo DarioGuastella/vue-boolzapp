@@ -63,19 +63,21 @@
                     </nav>
                 </div>
                 <div class="container  overflow-y-scroll">
-                     <div v-for="(value, i) in contacts" @click="myCounter(i)" 
-                        :class="counter==i ? 'row p-2 actived' : 'row p-2'">
-                        <div class="col-auto">
-                            <img :src="value.avatar" alt="">
+                    <template v-for="(value, i) in contacts">
+                        <div v-if="contacts[i].visible" @click="myCounter(i)" 
+                            :class="counter==i ? 'row p-2 actived' : 'row p-2'">
+                            <div class="col-auto">
+                                <img :src="value.avatar" alt="">
+                            </div>
+                            <div class="col">
+                                <h5>{{value.name}}</h5>
+                                <span class="infoText">{{contacts[i].messages[1].message}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="infoText">{{value.messages.date}}</span>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h5>{{value.name}}</h5>
-                            <span class="infoText">{{contacts[i].messages[1].message}}</span>
-                        </div>
-                        <div class="col-auto">
-                            <span class="infoText">{{value.messages.date}}</span>
-                        </div>
-                    </div>
+                    </template>
                 </div>
 
             </div>
