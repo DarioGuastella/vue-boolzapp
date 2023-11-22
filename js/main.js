@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            notifications: false, 
             newMsg: "",
             counter: 0,
             contacts: [
@@ -195,6 +196,10 @@ createApp({
             this.contacts[this.counter].messages.push(newTxt);
             this.newMsg = ""
             setTimeout(this.answerMsg, 1000);
+        },
+        notificationOff(){
+            this.notifications = !this.notifications
+            console.log(this.notifications)
         }
 
 

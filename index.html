@@ -43,11 +43,11 @@
         </div>
         <div class="row">
             <div class="col-4 p-0">
-                <div class="d-flex notificationBox p-2">
+                <div v-if="!notifications" class="d-flex notificationBox p-2">
                     <i class="fa-solid fa-bell-slash notificationIcon"></i>
                     <div class="">
                         <h5>Ricevi notifiche di nuovi messaggi</h5>
-                        <span class="infoText greyLink">Attiva notifiche desktop</span>
+                        <span @click="notificationOff()" class="infoText greyLink">Attiva notifiche desktop</span>
                     </div>
                 </div>
                 <div>
