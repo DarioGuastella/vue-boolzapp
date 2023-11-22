@@ -219,6 +219,15 @@ createApp({
                     //!this.contacts[this.counter].name.includes(this.searchInput)
             }
             
+        },
+        searchRestore(){
+
+            for (let i = 0; i < this.contacts.length; i++) {
+                if (this.contacts[i].name.includes(this.searchInput)) {
+                    this.contacts[i].visible=true
+                }
+            }
+            
         }
 
 
