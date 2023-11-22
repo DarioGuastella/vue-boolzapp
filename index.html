@@ -31,7 +31,8 @@
                     <img :src="contacts[counter].avatar" alt="">
                     <div class="d-flex flex-column">
                         <span class="">{{contacts[counter].name}}</span>
-                        <span class="infoText">Ultimo accesso oggi alle {{contacts[counter].messages[contacts[counter].messages.length-1].date}}</span>
+                        <span class="infoText">Ultimo accesso oggi alle
+                            {{contacts[counter].messages[contacts[counter].messages.length-1].date}}</span>
                     </div>
                 </div>
                 <div class="align-self-center me-2 text-secondary">
@@ -56,7 +57,8 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input v-model="searchInput" @keyup.delete="searchRestore()" @input="userSearch()" type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                            <input v-model="searchInput" @keyup.delete="searchRestore()" @input="userSearch()"
+                                type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
                                 aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
@@ -64,7 +66,7 @@
                 </div>
                 <div class="container  overflow-y-scroll">
                     <template v-for="(value, i) in contacts">
-                        <div v-if="contacts[i].visible" @click="myCounter(i)" 
+                        <div v-if="contacts[i].visible" @click="myCounter(i)"
                             :class="counter==i ? 'row p-2 actived' : 'row p-2'">
                             <div class="col-auto">
                                 <img :src="value.avatar" alt="">
@@ -85,9 +87,14 @@
                 <div class="backgroundBox overflow-y-scroll">
                     <div class="mt-5">
                         <div v-for="value in contacts[counter].messages"
-                            :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'">
-                            <p>{{ value.message }}</p>
+                            :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'"
+                            class="dropdown">
+                            <p class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ value.message}}</p>
                             <span class="msgTime">{{value.date}}</span>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Message info</a></li>
+                                <li><a class="dropdown-item" href="#">Delete message</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -110,9 +117,12 @@
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
-        integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 
