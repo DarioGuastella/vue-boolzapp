@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            nowTime: "",
             searchInput: "",
             notifications: false,
             newMsg: "",
@@ -177,9 +178,14 @@ createApp({
     },
     methods: {
 
+        whatTimeIsIt(){
+            let date = new Date().toLocaleTimeString();
+            this.nowTime=date;
+            console.log(this.nowTime);
+        },
+
         myCounter(i) {
             this.counter = i;
-            this.lengthCheck()
         },
         answerMsg() {
             let newCpuText = {
@@ -211,15 +217,13 @@ createApp({
                 }
             }
         },
-        lengthCheck() {
-            this.lastMsg = this.contacts[this.counter].messages.length - 1;
-        },
         deleteMessage(index) {
             this.contacts[this.counter].messages.splice(index, 1);
         }
     },
     mounted() {
-        let date = new Date().toLocaleDateString();
-        console.log(date);
+        let date = new Date().toLocaleTimeString();
+            this.nowTime=date;
+            console.log(this.nowTime);
     }
 }).mount('#app')

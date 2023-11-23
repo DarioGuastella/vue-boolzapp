@@ -32,10 +32,10 @@
             <!-- Colonna Chat aperta -->
             <div class="col-8 d-flex justify-content-between">
                 <div class="d-flex">
-                    <img :src="contacts[counter].avatar" alt="">
+                    <img v-if="contacts[counter].messages.length" :src="contacts[counter].avatar" alt="">
                     <div class="d-flex flex-column">
-                        <span class="">{{contacts[counter].name}}</span>
-                        <span class="infoText">Ultimo accesso
+                        <span v-if="contacts[counter].messages.length" class="">{{contacts[counter].name}}</span>
+                        <span v-if="contacts[counter].messages.length" class="infoText">Ultimo accesso
                             {{contacts[counter].messages[contacts[counter].messages.length-1].date.substr(0, 10)}} alle
                             {{contacts[counter].messages[contacts[counter].messages.length-1].date.substr(10,
                             6)}}</span>
@@ -75,16 +75,16 @@
                 </div>
                 <div class="container  overflow-y-scroll">
                     <template v-for="(value, i) in contacts">
-                        <div v-if="contacts[i].visible" @click="myCounter(i)"
+                        <div v-if="contacts[i].visible && contacts[i].messages.length" @click="myCounter(i)"
                             :class="counter==i ? 'row p-2 actived' : 'row p-2'">
                             <div class="col-auto">
                                 <img :src="value.avatar" alt="">
                             </div>
                             <div class="col">
                                 <h5>{{value.name}}</h5>
-                                <span class="infoText">{{value.messages[value.messages.length-1].message}}</span>
+                                <span v-if="value.messages.length" class="infoText">{{value.messages[value.messages.length-1].message}}</span>
                             </div>
-                            <div class="col-auto">
+                            <div v-if="value.messages.length" class="col-auto">
                                 <span class="infoText">{{value.messages[value.messages.length-1].date.substr(10,
                                     6)}}</span>
                             </div>
@@ -101,8 +101,8 @@
                             :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'"
                             class="pointer">
                             <div data-bs-toggle="dropdown" class="d-flex w-100 justify-content-between">
-                                <p class="textLimit" type="button" aria-expanded="false">{{ value.message}}</p>
-                                <span class="msgTime text-end">{{value.date.substr(10, 6)}}</span>
+                                <p v-if="value.message.length" class="textLimit" type="button" aria-expanded="false">{{ value.message}}</p>
+                                <span v-if="value.date.length" class="msgTime text-end">{{value.date.substr(10, 6)}}</span>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item">Message info</a></li>
                                     <li @click="deleteMessage(i)"><a class="dropdown-item">Delete message</a></li>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col">
 
-                        <input v-model="newMsg" @keyup.enter="addMsg" class="form-control me-2" type="text"
+                        <input v-model="newMsg" @keyup.enter="whatTimeIsIt(); addMsg();" class="form-control me-2" type="text"
                             placeholder="Scrivi un messaggio" aria-label="Search">
 
                     </div>
