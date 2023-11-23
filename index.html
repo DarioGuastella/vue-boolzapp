@@ -13,8 +13,11 @@
 </head>
 
 <body>
+    <!-- Container generale -->
     <div id="app" class="container bg-white mt-5">
+        <!-- Row superiore -->
         <div class="row p-2">
+            <!-- Colonna Utente -->
             <div class="col-4 d-flex justify-content-between align-items-center">
                 <div>
                     <img src="img/avatar_io.jpg" alt="">
@@ -26,6 +29,7 @@
                     <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
                 </div>
             </div>
+            <!-- Colonna Chat aperta -->
             <div class="col-8 d-flex justify-content-between">
                 <div class="d-flex">
                     <img :src="contacts[counter].avatar" alt="">
@@ -44,7 +48,10 @@
                 </div>
             </div>
         </div>
+        <!-- Fine Row superiore -->
+        <!-- Row inferiore -->
         <div class="row">
+            <!-- Colonna contatti -->
             <div class="col-4 p-0">
                 <div v-if="!notifications" class="d-flex notificationBox p-2">
                     <i class="fa-solid fa-bell-slash notificationIcon"></i>
@@ -59,9 +66,9 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input v-model="searchInput" @input.delete="searchRestore()" @input="userSearch()"
-                                type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                                aria-label="Username" aria-describedby="basic-addon1">
+                            <input v-model="searchInput" @input="userSearch()" type="text" class="form-control"
+                                placeholder="Cerca o inizia una nuova chat" aria-label="Username"
+                                aria-describedby="basic-addon1">
                         </div>
 
                     </nav>
@@ -86,6 +93,7 @@
                 </div>
 
             </div>
+            <!-- Colonna conversazione -->
             <div class="col-8 p-0">
                 <div class="backgroundBox overflow-y-scroll">
                     <div class="mt-5">
@@ -104,6 +112,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Barra input e icone -->
                 <div class="textBox d-flex align-items-center">
                     <div class="col-auto mx-4">
                         <i class="fa-regular fa-face-smile"></i>

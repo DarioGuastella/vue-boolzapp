@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             searchInput: "",
-            notifications: false, 
+            notifications: false,
             newMsg: "",
             counter: 0,
             lastMsg: "",
@@ -169,14 +169,14 @@ createApp({
                             status: 'received'
                         }
                     ],
-                    
+
                 }
             ]
 
         }
     },
     methods: {
-        
+
         myCounter(i) {
             this.counter = i;
             this.lengthCheck()
@@ -200,40 +200,23 @@ createApp({
             this.newMsg = ""
             setTimeout(this.answerMsg, 1000);
         },
-        notificationOff(){
+        notificationOff() {
             this.notifications = !this.notifications
-            console.log(this.notifications)
         },
-        userSearch(){
+        userSearch() {
             for (let i = 0; i < this.contacts.length; i++) {
+                this.contacts[i].visible = true
                 if (!this.contacts[i].name.toLowerCase().includes(this.searchInput)) {
-                    this.contacts[i].visible=false
-                    
-                }               
-                console.log(this.contacts[i].visible);
-            }
-            
-        },
-        searchRestore(){
-
-            for (let i = 0; i < this.contacts.length; i++) {
-                if (this.contacts[i].name.includes(this.searchInput)) {
-                    this.contacts[i].visible=true
+                    this.contacts[i].visible = false
                 }
             }
-            
         },
-        lengthCheck(){
-            this.lastMsg = this.contacts[this.counter].messages.length-1;
+        lengthCheck() {
+            this.lastMsg = this.contacts[this.counter].messages.length - 1;
         },
         deleteMessage(index) {
             this.contacts[this.counter].messages.splice(index, 1);
         }
-
-        
-
-
-
     },
     mounted() {
         let date = new Date().toLocaleDateString();
