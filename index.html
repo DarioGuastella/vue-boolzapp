@@ -31,8 +31,10 @@
                     <img :src="contacts[counter].avatar" alt="">
                     <div class="d-flex flex-column">
                         <span class="">{{contacts[counter].name}}</span>
-                        <span class="infoText">Ultimo accesso oggi alle
-                            {{contacts[counter].messages[contacts[counter].messages.length-1].date}}</span>
+                        <span class="infoText">Ultimo accesso
+                            {{contacts[counter].messages[contacts[counter].messages.length-1].date.substr(0, 10)}} alle
+                            {{contacts[counter].messages[contacts[counter].messages.length-1].date.substr(10,
+                            6)}}</span>
                     </div>
                 </div>
                 <div class="align-self-center me-2 text-secondary">
@@ -57,7 +59,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input v-model="searchInput" @keyup.delete="searchRestore()" @input="userSearch()"
+                            <input v-model="searchInput" @input.delete="searchRestore()" @input="userSearch()"
                                 type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
                                 aria-label="Username" aria-describedby="basic-addon1">
                         </div>
@@ -76,7 +78,8 @@
                                 <span class="infoText">{{value.messages[value.messages.length-1].message}}</span>
                             </div>
                             <div class="col-auto">
-                                <span class="infoText">{{value.messages[value.messages.length-1].date}}</span>
+                                <span class="infoText">{{value.messages[value.messages.length-1].date.substr(10,
+                                    6)}}</span>
                             </div>
                         </div>
                     </template>
@@ -90,14 +93,14 @@
                             :class="value.status=='sent' ? 'sentMsg msg d-flex' : 'receivedMsg msg d-flex'"
                             class="pointer">
                             <div data-bs-toggle="dropdown" class="d-flex w-100 justify-content-between">
-                            <p class="" type="button"aria-expanded="false">{{ value.message}}</p>
-                            <span class="msgTime text-end">{{value.date}}</span>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item">Message info</a></li>
-                                <li @click="deleteMessage(i)"><a class="dropdown-item">Delete message</a></li>
-                            </ul>
-                        </div>
-                            
+                                <p class="textLimit" type="button" aria-expanded="false">{{ value.message}}</p>
+                                <span class="msgTime text-end">{{value.date.substr(10, 6)}}</span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item">Message info</a></li>
+                                    <li @click="deleteMessage(i)"><a class="dropdown-item">Delete message</a></li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -127,6 +130,10 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
+"></script>
+
 </body>
 
 </html>

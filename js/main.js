@@ -236,5 +236,7 @@ createApp({
 
     },
     mounted() {
+        let date = new Date().toLocaleDateString();
+        console.log(date);
     }
 }).mount('#app')
